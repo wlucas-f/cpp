@@ -7,13 +7,10 @@
 class PhoneBook{
 	public:
 		PhoneBook();
-        void addContact(Contact ctt){
-			list[index] = ctt;
-			index++;
-		}
-		void search(){
-			list[0].print_info();
-		}
+        void addContact(Contact ctt);
+		int getIndex();
+		void setIndex(int num);
+		Contact getContact(int index);
 	private:
 		Contact list[8];
 		int index;
