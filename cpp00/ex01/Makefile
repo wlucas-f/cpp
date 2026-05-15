@@ -10,7 +10,7 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(OBJ_DIR)
+$(NAME): $(OBJS)
 	$(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR):
