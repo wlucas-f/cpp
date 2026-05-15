@@ -42,6 +42,17 @@ void cmdAdd(PhoneBook &pb){
     std::cout << "Insert secret: " << std::endl;
     std::getline(std::cin, secret);
 
+    if(name.empty() || surname.empty() || nick.empty() || number.empty() || secret.empty())
+    {
+        std::cout << std::endl << "Empty fields are not accepted! Press ENTER...";
+        std::cout.flush();
+        std::cin.ignore();
+        std::cin.get();
+
+        clearScreen();
+        return ;
+    }
+
     pb.addContact(Contact(name, surname, nick, number, secret));
 
     std::cout << std::endl << "Contact added! Press ENTER...";
