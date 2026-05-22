@@ -5,14 +5,12 @@
 
 class HumanA{
     public:
-        HumanA(){};
-        HumanA(std::string n, Weapon w) : name(n), weapon(w){};
-        void attack(){
-            std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+        HumanA(const std::string name, Weapon &weapon) : name(name), weapon(weapon){};
+        void attack() const {
+            std::cout << this->name << " attacks with their " << weapon.getType() << std::endl;
         }
     private:
         std::string name;
-        Weapon weapon;
+        Weapon &weapon;
 };
-
 #endif
