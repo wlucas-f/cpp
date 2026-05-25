@@ -3,7 +3,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
-#include <climits>
+#include <limits>
 
 void clearScreen(){
     std::cout << "\033[2J\033[H";
@@ -30,7 +30,7 @@ void cmdAdd(PhoneBook &pb){
 
     std::string name, surname, nick, number, secret;
 
-    std::cin.ignore(INT_MAX, '\n');
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cout << "Insert name: " << std::endl;
     std::getline(std::cin, name);
     std::cout << "Insert surname: " << std::endl;
@@ -66,8 +66,7 @@ void cmdAdd(PhoneBook &pb){
 void cmdSearch(PhoneBook &pb){
     clearScreen();
 
-    if (pb.getIndex() >= 8)
-        pb.setIndex(8);
+    int toDisplay = pb.getIndex() >= 8 ? toDisplay = 8 : toDisplay = pb.getIndex();
     
     if(pb.getIndex() == 0) {
         std::cout << "PhoneBook is empty." << std::endl;
@@ -82,7 +81,7 @@ void cmdSearch(PhoneBook &pb){
     std::cout << "[SEARCH]" << std::endl << std:: endl;
     printRow("Index", "First Name", "Last Name", "Nick Name");
 
-    for(int i = 0; i < pb.getIndex(); i++)
+    for(int i = 0; i < toDisplay; i++)
     {
         std::stringstream ss;
         ss << i;
@@ -100,7 +99,7 @@ void cmdSearch(PhoneBook &pb){
 
     std::istringstream iss(input);
     int idx;
-    if(!(iss >> idx) || idx < 0 || idx >= pb.getIndex()){
+    if(!(iss >> idx) || idx < 0 || idx >= toDisplay){
         std::cerr << "Invalid index." << std::endl;
     }
     else {
@@ -139,5 +138,7 @@ int main()
             cmdSearch(pb);
         else if(option == "Exit")
             return (0);
+        else
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 }

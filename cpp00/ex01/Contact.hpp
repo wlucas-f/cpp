@@ -2,23 +2,16 @@
 #define CONTACT_H
 
 #include <iostream>
-#include <string>
-
-
 
 class Contact{
 	public:
-		Contact(){}
-		Contact(std::string f_name, std::string l_name, std::string n_name, std::string p_number, std::string secret)
-			: first_name(f_name), last_name(l_name), nickname(n_name), phone_number(p_number), darkest_secret(secret) {}
-
-		void print_info();
+		Contact();
+		Contact(std::string f_name, std::string l_name, std::string n_name, std::string p_number, std::string secret);
 		std::string getName();
 		std::string getSurname();
 		std::string getNick();
 		std::string getPhone();
 		std::string getSecret();
-
 	private:
 		std::string first_name;
 		std::string last_name;
