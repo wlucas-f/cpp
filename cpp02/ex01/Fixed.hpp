@@ -9,7 +9,7 @@ class Fixed{
         Fixed():rawValue(0){
             std::cout << "Default constructor called" << std::endl;
         };
-        Fixed(const int &value):rawValue(value << 8){
+        Fixed(const int &value):rawValue(value << fp){
             std::cout << "Int constructor called" << std::endl;
         };
         Fixed(const float &value):rawValue(roundf(value * (1 << fp))){
@@ -22,16 +22,18 @@ class Fixed{
             std::cout << "Copy assingment operator called" << std::endl;
             if(this == &obj)
                 return *this;
-            this->setRawBits(obj.getRawBits());
+            this->rawValue=obj.rawValue;
             return *this;
         };
         ~Fixed(){
             std::cout << "Destructor called" << std::endl;
         };
         int getRawBits(void) const{
+            std::cout << "getRawBits member function called" << std::endl;
             return(this->rawValue);
         };
         void setRawBits(int const &raw){
+            std::cout << "setRawBits member function called" << std::endl;
             this->rawValue = raw;
         };
         float toFloat(void) const{

@@ -95,7 +95,7 @@ void cmdSearch(PhoneBook &pb){
 
     std::string input;
     std::cin >> input;
-    if(!std::cin)
+    if(!std::cin || input.find_first_not_of("0123456789") != std::string::npos)
         return ;
 
     std::istringstream iss(input);
