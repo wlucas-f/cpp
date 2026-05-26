@@ -1,9 +1,26 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main(){
-    ClapTrap robot1("Bob");
-    ClapTrap robot2("Jimmy");
-    robot1.attack(robot2.getName());
-    robot2.takeDamage(1000);
-    robot2.attack("Tests");
+int main()
+{
+  ClapTrap MachineA("Roboto");
+  ClapTrap MachineB("Roboto");
+  MachineA.attack(MachineB.getName());
+  MachineB.takeDamage(5);
+  MachineA.beRepaired(1);
+  std::cout << std::endl << std::endl;
+
+  ScavTrap ScavA("Robert");
+  ScavA.guardGate();
+  ScavA.attack("Pigeon");
+  ScavA.takeDamage(10);
+
+  ScavTrap ScavB(ScavA);
+  ScavB.beRepaired(5);
+  ScavB.beRepaired(1);
+
+  ScavTrap ScavC = ScavA;
+  ScavC.takeDamage(100);
+  ScavC.takeDamage(100);
+  ScavC.attack("Perry");
+  return 0;
 }

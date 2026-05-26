@@ -9,7 +9,7 @@ ClapTrap::ClapTrap(ClapTrap &other){
     *this = other;
 }
 
-ClapTrap ClapTrap::operator=(const ClapTrap &other){
+ClapTrap &ClapTrap::operator=(const ClapTrap &other){
     std::cout << "Copy assingment operator called\n";
     if (this == &other)
         return *this;
