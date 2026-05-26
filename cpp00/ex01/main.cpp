@@ -127,7 +127,7 @@ int main()
 
     clearScreen();
     std::cout << "PHONEBOOK" << std::endl;
-    while(1){
+    while(!std::cin.eof()){
         std::cout << std::endl;
         std::cout << "Choose one of the following options: Add, Search, Exit." << std::endl;
         std::cout << "phonebook> ";
