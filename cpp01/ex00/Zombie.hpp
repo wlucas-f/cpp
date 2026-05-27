@@ -5,8 +5,8 @@
 
 class Zombie{
     public:
-        Zombie(){};
-        Zombie(std::string n):name(n){};
+        Zombie();
+        Zombie(std::string n);
         void announce(void);
         ~Zombie();
     private:

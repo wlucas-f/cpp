@@ -5,13 +5,9 @@
 
 class Weapon{
     public:
-        Weapon(const std::string &type) : type(type){};
-        const std::string &getType() const{
-            return (this->type);
-        }
-        void setType(std::string type){
-            this->type = type;
-        }
+        Weapon(const std::string &type);
+        const std::string &getType() const;
+        void setType(std::string type);
     private:
         std::string type;
 };
