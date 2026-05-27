@@ -1,13 +1,13 @@
 #include "Fixed.hpp"
 
 // Constructors
-Fixed::Fixed() : rawValue(0) {};
+Fixed::Fixed() : rawValue(0) {}
 
-Fixed::Fixed(const int &value) : rawValue(value << 8) {};
+Fixed::Fixed(const int &value) : rawValue(value << 8) {}
 
-Fixed::Fixed(const float &value) : rawValue(roundf(value * (1 << fp))) {};
+Fixed::Fixed(const float &value) : rawValue(roundf(value * (1 << fp))) {}
 
-Fixed::Fixed(const Fixed &obj) : rawValue(obj.rawValue) {};
+Fixed::Fixed(const Fixed &obj) : rawValue(obj.rawValue) {}
 
 // Operators
 Fixed &Fixed::operator=(const Fixed &obj)
@@ -16,13 +16,13 @@ Fixed &Fixed::operator=(const Fixed &obj)
         return *this;
     this->setRawBits(obj.getRawBits());
     return *this;
-};
+}
 
 // Arithmetic Operators
 Fixed Fixed::operator+(const Fixed &obj)
 {
     return (this->rawValue + obj.rawValue);
-};
+}
 
 Fixed Fixed::operator-(const Fixed &obj)
 {
