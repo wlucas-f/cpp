@@ -29,7 +29,7 @@ void Account::displayAccountsInfos(void){
     std::cout << "accounts:" << getNbAccounts() << ";total:" << getTotalAmount() << ";deposits:" << getNbDeposits() << ";withdrawals:" << getNbWithdrawals() << "\n";
 }
 
-Account::Account(int initial_deposit) : _amount(initial_deposit), _accountIndex(_nbAccounts){
+Account::Account(int initial_deposit) : _accountIndex(_nbAccounts), _amount(initial_deposit){
     _displayTimestamp();
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created\n";
     _nbAccounts++;
@@ -58,7 +58,7 @@ bool Account::makeWithdrawal(int withdrawal)
     _amount-=withdrawal;
     if(!checkAmount()){
         _amount+=withdrawal;
-        std::cout << ";withdrawal:" << withdrawal << ":refused\n";
+        std::cout << ";withdrawal:refused\n";
         return false;
     }
     _nbWithdrawals++;
