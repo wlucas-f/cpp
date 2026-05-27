@@ -3,6 +3,13 @@
 
 #include <iostream>
 
+enum levels {
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR
+};
+
 class Harl{
     
     public:

@@ -26,16 +26,39 @@ void Harl::error(void)
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-void Harl::complain(std::string level)
-{
+void Harl::complain(std::string level){
     typedef void (Harl::*fptr)(void);
     std::string options[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
     fptr ptr[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-    for (int i = 0; i < 4; i++)
+    int option;
+    for(option = 0; option < 4; option++)
     {
-        if (level == options[i])
-            (this->*ptr[i])();
+        if(option == 3 && level != options[option])
+        {
+            option = -1;
+            break ;
+        }
+        if(options[option] == level)
+            break ;
+    }
+
+    switch(option){
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]\n";
+            break ;
+        case (DEBUG):
+            (this->*ptr[DEBUG])();
+            /* fallthrough */
+        case (INFO):
+            (this->*ptr[INFO])();
+            /* fallthrough */
+        case (WARNING):
+            (this->*ptr[WARNING])();
+            /* fallthrough */
+        case (ERROR):
+            (this->*ptr[ERROR])();
+            break ;
     }
 }
