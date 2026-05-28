@@ -6,11 +6,9 @@
 
 class Dog : public Animal{
     public:
-        Dog(std::string &type);
+        Dog(const std::string &type);
         Dog(const Dog &other);
         Dog &operator=(const Dog &other);
-        void setType(const std::string &t);
-        std::string getType() const;
         ~Dog();
 
     private:

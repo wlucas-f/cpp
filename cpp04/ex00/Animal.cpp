@@ -6,6 +6,11 @@ Animal::Animal() : type()
     std::cout << "Animal construtor called\n";
 }
 
+Animal::Animal(const std::string &type) : type(type)
+{
+    std::cout << "Animal construtor called\n";
+}
+
 Animal::Animal(const Animal &other) {
     std::cout << "Animal copy construtor called\n";
     *this = other;
@@ -19,7 +24,7 @@ Animal &Animal::operator=(const Animal &other){
     return *this;
 }
 
-void Animal::setType(const std::string &t){
+void Animal::setType(const std::string &type){
     this->type = type;
 }
 
@@ -31,12 +36,12 @@ void Animal::makeSound()
 {
     if(this->getType() == "Cat")
     {
-        std::cout << "Meow\n";
+        std::cout << "Meow... Meow...\n";
         return ;
     }
     else if(this->getType() == "Dog")
     {
-        std::cout << "Woof\n";
+        std::cout << "Woof! Woof!\n";
     }
 }
 

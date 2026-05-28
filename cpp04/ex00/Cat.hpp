@@ -6,11 +6,9 @@
 
 class Cat : public Animal{
     public:
-        Cat(std::string &type);
+        Cat(const std::string &type);
         Cat(const Cat &other);
         Cat &operator=(const Cat &other);
-        void setType(const std::string &t);
-        std::string getType() const;
         ~Cat();
 
     private:

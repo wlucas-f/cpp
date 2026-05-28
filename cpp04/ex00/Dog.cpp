@@ -1,7 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog(std::string &type) : Animal(){
-    this->type = type;
+Dog::Dog(const std::string &type) : Animal(type){
     std::cout << "Dog construtor called\n";
 }
 
@@ -16,14 +15,6 @@ Dog &Dog::operator=(const Dog &other){
         return *this;
     this->setType(other.getType());
     return *this;
-}
-
-void Dog::setType(const std::string &t){
-    this->type = type;
-}
-
-std::string Dog::getType() const{
-    return this->type;
 }
 
 Dog::~Dog(){
