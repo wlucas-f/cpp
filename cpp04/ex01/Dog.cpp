@@ -1,7 +1,12 @@
 #include "Dog.hpp"
 
+Dog::Dog() : Animal(){
+    std::cout << "Dog construtor called\n";
+}
+
 Dog::Dog(const std::string &type) : Animal(type){
     std::cout << "Dog construtor called\n";
+    this->brain = new Brain();
 }
 
 Dog::Dog(const Dog &other) : Animal(other){
@@ -19,4 +24,5 @@ Dog &Dog::operator=(const Dog &other){
 
 Dog::~Dog(){
     std::cout << "Dog destructor called\n";
+    delete brain;
 }

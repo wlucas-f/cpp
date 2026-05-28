@@ -1,7 +1,8 @@
 #include "Animal.hpp"
 
-Animal::Animal(const std::string &type) : type(type)
-{
+Animal::Animal(){};
+
+Animal::Animal(const std::string &type) : type(type){
     std::cout << "Animal construtor called\n";
 }
 

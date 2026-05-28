@@ -13,8 +13,17 @@ Brain &Brain::operator=(const Brain &other){
     std::cout << "Brain assignment operator called\n";
     if (this == &other)
         return *this;
-    this->setArrIdeas(other.getArrIdeas());
+    for(int i = 0; i < 100; i++)
+        this->ideas[i] = other.ideas[i];
     return *this;
+}
+
+void Brain::setIdea(const std::string &idea, int index){
+    this->ideas[index] = idea;
+}
+
+std::string Brain::getIdea(int index){
+    return (this->ideas[index]);
 }
 
 Brain::~Brain(){
