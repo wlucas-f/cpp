@@ -13,7 +13,7 @@ all:$(NAME)
 $(NAME): $(OBJS)
 	c++ $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJS_DIR)/%.o:%.cpp $(OBJS_DIR)
+$(OBJS_DIR)/%.o:%.cpp | $(OBJS_DIR)
 	c++ $(CFLAGS) -c $< -o $@
 
 $(OBJS_DIR):
