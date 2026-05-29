@@ -11,7 +11,7 @@ enum levels {
 };
 
 class Harl{
-    
+
     public:
         void complain(std::string level);
 

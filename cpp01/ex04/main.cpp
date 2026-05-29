@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -14,36 +15,35 @@ int main(int argc, char **argv)
     std::string s1(argv[2]);
     std::string s2(argv[3]);
     std::string line;
-    std::ifstream file(filename);
-    std::ofstream fileout(filename + ".replace");
+    std::ifstream file(filename.c_str());
+    if (!file.is_open())
+    {
+	    std::cerr << "Error: Failed to open input file!" << std::endl;
+	    return (1);
+    }
+
+    std::string fileReplace (filename + ".replace");
+    std::ofstream fileout(fileReplace.c_str());
     if(!fileout.is_open())
     {
         std::cerr << "Error: Failed to create output file!" << std::endl;
         return (1);
     }
-    if (file.is_open())
+    while (getline(file, line))
     {
-        while (getline(file, line))
+        size_t pos = line.find(s1);
+        if (pos == std::string::npos)
         {
-            int pos = line.find(s1);
-            if (pos == std::string::npos)
-            {
-                fileout << line << std::endl;
-                continue ;
-            }
-            while (pos != std::string::npos)
-            {
-                fileout << line.substr(0, pos) << s2 << (pos == line.rfind(s1) ? (line.substr(pos + s1.length())) : "" );
-                line = line.substr(pos + s1.length());
-                pos = line.find(s1);
-            }
-            fileout << std::endl;
+            fileout << line << std::endl;
+            continue ;
         }
-        file.close();
+        while (pos != std::string::npos)
+        {
+            fileout << line.substr(0, pos) << s2 << (pos == line.rfind(s1) ? (line.substr(pos + s1.length())) : "");
+            line = line.substr(pos + s1.length());
+            pos = line.find(s1);
+        }
+        fileout << std::endl;
     }
-    else
-    {
-        std::cerr << "Error: Failed to open input file!" << std::endl;
-        return (1);
-    }
+    file.close();
 }
