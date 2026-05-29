@@ -28,17 +28,8 @@ std::string Animal::getType() const{
     return this->type;
 }
 
-void Animal::makeSound()
-{
-    if(this->getType() == "Cat")
-    {
-        std::cout << "Meow... Meow...\n";
-        return ;
-    }
-    else if(this->getType() == "Dog")
-    {
-        std::cout << "Woof! Woof!\n";
-    }
+void Animal::makeSound(){
+	std::cout << "A non-defined Animal makes a generic, but weird sound!!" << std::endl;
 }
 
 Animal::~Animal(){

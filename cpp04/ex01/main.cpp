@@ -9,6 +9,8 @@ int main()
     const Animal *i = new Cat();
     delete j;
     delete i;
+
+    std::cout << std::endl;
     Animal *farm[10];
     for(int i = 0; i < 10; i++)
     {
@@ -17,10 +19,11 @@ int main()
         else
             farm[i] = new Cat("Cat");
     }
+    std::cout << std::endl;
     for(int i = 0; i < 10; i++)
-    {
         farm[i]->makeSound();
-        delete farm[i];
-    }
+    std::cout << std::endl;
+    for(int i = 0; i < 10; i++)
+    	delete farm[i];
     return 0;
 }

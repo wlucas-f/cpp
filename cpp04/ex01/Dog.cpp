@@ -25,6 +25,10 @@ Dog &Dog::operator=(const Dog &other){
     return *this;
 }
 
+void Dog::makeSound (){
+	std::cout << "Woof... Woof.. Woof." << std::endl;
+}
+
 Dog::~Dog(){
     std::cout << "Dog destructor called\n";
     delete brain;
