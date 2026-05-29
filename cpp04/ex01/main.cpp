@@ -12,7 +12,7 @@ int main()
     Animal *farm[10];
     for(int i = 0; i < 10; i++)
     {
-        if (i%2) 
+        if (i%2)
             farm[i] = new Dog("Dog");
         else
             farm[i] = new Cat("Cat");
@@ -22,6 +22,5 @@ int main()
         farm[i]->makeSound();
         delete farm[i];
     }
-    
     return 0;
 }
