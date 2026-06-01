@@ -10,7 +10,12 @@ int main(int argc, char **argv)
         std::cerr << "Usage: ./replace filename s1 s2" << std::endl;
         return (1);
     }
-
+    if(!argv[1][0] || !argv[2][0] || !argv[3][0])
+    {
+	    std::cerr << "Arguments can't be empty" << std::endl;
+		std::cerr << "Usage: ./replace filename s1 s2" << std::endl;
+	    return (1);
+    }
     std::string filename(argv[1]);
     std::string s1(argv[2]);
     std::string s2(argv[3]);

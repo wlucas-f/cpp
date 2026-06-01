@@ -32,17 +32,9 @@ void Harl::complain(std::string level){
 
     fptr ptr[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-    int option;
-    for(option = 0; option < 4; option++)
-    {
-        if(option == 3 && level != options[option])
-        {
-            option = -1;
-            break ;
-        }
-        if(options[option] == level)
-            break ;
-    }
+    int option = 0;
+    while(options[option] != level && option < 5)
+    	++option;
 
     switch(option){
         default:
@@ -50,13 +42,10 @@ void Harl::complain(std::string level){
             break ;
         case (DEBUG):
             (this->*ptr[DEBUG])();
-            /* fallthrough */
         case (INFO):
             (this->*ptr[INFO])();
-            /* fallthrough */
         case (WARNING):
             (this->*ptr[WARNING])();
-            /* fallthrough */
         case (ERROR):
             (this->*ptr[ERROR])();
             break ;

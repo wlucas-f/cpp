@@ -1,9 +1,9 @@
 #include "Harl.hpp"
 
 int main(){
-    Harl chato;
-    chato.complain("WARNING");
-    chato.complain("DEBUG");
-    chato.complain("INFO");
-    chato.complain("ERROR");
+	Harl karen;
+    karen.complain("WARNING");
+    karen.complain("DEBUG");
+    karen.complain("INFO");
+    karen.complain("ERROR");
 }
