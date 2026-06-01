@@ -41,4 +41,6 @@ private:
     static const int fp = 8;
 };
 
+std::ostream &operator<<(std::ostream &output, const Fixed &obj);
+
 #endif
