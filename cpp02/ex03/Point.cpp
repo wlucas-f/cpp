@@ -23,11 +23,11 @@ const Fixed Point::getY() const{
     return this->y;
 }
 
-const float Point::xFloat() const{
+float Point::xFloat() const{
     return (this->x.toFloat());
 }
 
-const float Point::yFloat() const{
+float Point::yFloat() const{
     return (this->y.toFloat());
 }
 

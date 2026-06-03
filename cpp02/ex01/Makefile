@@ -1,4 +1,4 @@
-NAME = fixed
+NAME = usefulFixed
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 

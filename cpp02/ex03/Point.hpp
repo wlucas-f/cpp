@@ -12,8 +12,8 @@ class Point{
     bool operator==(const Point &other) const;
     const Fixed getX() const;
     const Fixed getY() const;
-    const float xFloat() const;
-    const float yFloat() const;
+    float xFloat() const;
+    float yFloat() const;
     ~Point();
  private:
      const Fixed x;

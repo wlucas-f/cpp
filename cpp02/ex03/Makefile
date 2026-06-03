@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS_DIR = .
 OBJS_DIR = objects
 
-SRCS = Fixed.cpp main.cpp
+SRCS = Fixed.cpp main.cpp Point.cpp bsp.cpp
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)

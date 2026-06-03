@@ -1,11 +1,10 @@
 #include <iostream>
 #include "Fixed.hpp"
 
-std::ostream &operator<<(std::ostream &output, const Fixed &obj)
-{
+std::ostream &operator<<(std::ostream &output, const Fixed &obj){
     output << obj.toFloat();
     return output;
-};
+}
 
 int main(void)
 {
