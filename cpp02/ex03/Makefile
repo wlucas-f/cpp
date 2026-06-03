@@ -1,4 +1,4 @@
-NAME = usefulFixed
+NAME = bsp
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
