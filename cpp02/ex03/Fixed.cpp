@@ -13,7 +13,7 @@ Fixed::Fixed(const Fixed &obj) : rawValue(obj.rawValue) {}
 Fixed &Fixed::operator=(const Fixed &obj){
     if (this == &obj)
         return *this;
-    this->setRawBits(obj.getRawBits());
+    this->rawValue = obj.rawValue;
     return *this;
 }
 

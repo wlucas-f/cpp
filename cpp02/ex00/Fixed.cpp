@@ -12,7 +12,7 @@ Fixed& Fixed::operator=(const Fixed &obj){
     std::cout << "Copy assingment operator called" << std::endl;
     if(this == &obj)
         return *this;
-    this->setRawBits(obj.getRawBits());
+    this->value = obj.value;
     return *this;
 }
 
