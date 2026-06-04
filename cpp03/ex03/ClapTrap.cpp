@@ -1,10 +1,14 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(){
+	std::cout << "ClapTrap default constructor called\n";
+}
+
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
     std::cout << "ClapTrap constructor called\n";
 }
 
-ClapTrap::ClapTrap(ClapTrap &other){
+ClapTrap::ClapTrap(const ClapTrap &other){
     std::cout << "ClapTrap copy constructor called\n";
     *this = other;
 }
