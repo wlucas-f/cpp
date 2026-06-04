@@ -23,8 +23,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other){
 }
 
 void ScavTrap::attack(const std::string &target){
-    if (!this->chassisUp())
-    {
+    if (!this->chassisUp()){
         std::cout << "ScavTrap " << this->name << " can't attack\n";
         return;
     }
@@ -32,19 +31,16 @@ void ScavTrap::attack(const std::string &target){
     this->energyPoints--;
 }
 
-void ScavTrap::guardGate()
-{
+void ScavTrap::guardGate(){
     std::cout << "ScavTrap is in Gate keeper mode\n";
 }
 
-bool ScavTrap::chassisUp()
-{
+bool ScavTrap::chassisUp(){
     if(this->hitPoints > 0 && this->energyPoints > 0)
         return true;
     return false;
 }
 
-ScavTrap::~ScavTrap()
-{
+ScavTrap::~ScavTrap(){
     std::cout << "ScavTrap destructor called\n";
 }

@@ -13,14 +13,16 @@ int main()
   ScavA.guardGate();
   ScavA.attack("Pigeon");
   ScavA.takeDamage(10);
+  std::cout << std::endl << std::endl;
 
   ScavTrap ScavB(ScavA);
   ScavB.beRepaired(5);
   ScavB.beRepaired(1);
+  std::cout << std::endl << std::endl;
 
   ScavTrap ScavC = ScavA;
   ScavC.takeDamage(100);
   ScavC.takeDamage(100);
   ScavC.attack("Perry");
-  return 0;
+  std::cout << std::endl << std::endl;
 }
