@@ -11,7 +11,6 @@ class DiamondTrap : public FragTrap, public ScavTrap{
         DiamondTrap(const DiamondTrap &other);
         DiamondTrap& operator=(const DiamondTrap &other);
         void whoAmI();
-        bool chassisUp();
         ~DiamondTrap();
 
     private:

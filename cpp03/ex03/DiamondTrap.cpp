@@ -29,13 +29,6 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &other){
 	return *this;
 }
 
-bool DiamondTrap::chassisUp()
-{
-    if(this->hitPoints > 0 && this->energyPoints > 0)
-        return true;
-    return false;
-}
-
 void DiamondTrap::whoAmI(){
 	std::cout << "Hello! Im " << this->name << "! And my ClapTrap's name is " << ClapTrap::name << std::endl;
 }
