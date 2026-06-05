@@ -1,7 +1,7 @@
 #include "DiamondTrap.hpp"
 #include <ostream>
 
-DiamondTrap::DiamondTrap() :ClapTrap("Default_clap_name"), name("Default"){
+DiamondTrap::DiamondTrap():ClapTrap("Default_clap_name"), ScavTrap(), FragTrap(), name("Default"){
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 30;

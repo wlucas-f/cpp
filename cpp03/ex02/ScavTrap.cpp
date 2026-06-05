@@ -36,13 +36,6 @@ void ScavTrap::guardGate()
     std::cout << "ScavTrap is in Gate keeper mode\n";
 }
 
-bool ScavTrap::chassisUp()
-{
-    if(this->hitPoints > 0 && this->energyPoints > 0)
-        return true;
-    return false;
-}
-
 ScavTrap::~ScavTrap()
 {
     std::cout << "ScavTrap destructor called\n";

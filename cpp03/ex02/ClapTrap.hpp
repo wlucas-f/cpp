@@ -5,7 +5,8 @@
 
 class ClapTrap{
     public:
-        explicit ClapTrap(std::string name);
+    ClapTrap();
+    ClapTrap(std::string name);
         ClapTrap(ClapTrap &other);
         ClapTrap &operator=(const ClapTrap &other);
         void attack(const std::string &target);

@@ -9,7 +9,7 @@ class ClapTrap{
      	ClapTrap(std::string name);
         ClapTrap(const ClapTrap &other);
         ClapTrap &operator=(const ClapTrap &other);
-        virtual void attack(const std::string &target);
+        void attack(const std::string &target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
         std::string getName() const;
@@ -17,7 +17,7 @@ class ClapTrap{
         int getEnergyPoints() const;
         int getAttackDamage() const;
         bool chassisUp();
-        ~ClapTrap();
+        virtual ~ClapTrap();
     protected:
         std::string name;
         int hitPoints;

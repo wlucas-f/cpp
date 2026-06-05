@@ -1,9 +1,11 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(){};
+ClapTrap::ClapTrap():name("Default"), hitPoints(10), energyPoints(10), attackDamage(0){
+	std::cout << "Default constructor called\n";
+}
 
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
-    std::cout << "Constructor called\n";
+	std::cout << "Constructor called\n";
 }
 
 ClapTrap::ClapTrap(ClapTrap &other){
@@ -45,8 +47,7 @@ void ClapTrap::takeDamage(unsigned int amount){
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-    if (!this->chassisUp())
-    {
+    if (!this->chassisUp()){
         std::cout << "ClapTrap " << this->name << " can't repair itself!\n";
         return;
     }
