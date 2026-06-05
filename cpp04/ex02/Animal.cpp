@@ -28,7 +28,7 @@ std::string Animal::getType() const{
     return this->type;
 }
 
-void Animal::makeSound(){
+void Animal::makeSound() const{
 	std::cout << "A non-defined Animal makes a generic, but weird sound!!" << std::endl;
 }
 
