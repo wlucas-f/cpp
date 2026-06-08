@@ -1,4 +1,5 @@
 #include "AMateria.hpp"
+#include "iostream"
 
 AMateria::AMateria():type("Default"){}
 
@@ -20,4 +21,6 @@ std::string const &AMateria::getType() const{ //Returns the materia type
     return this->type;
 }
 
-virtual void use(ICharacter& target);
+void AMateria::use(ICharacter& target){
+    std::cout << "* uses A Materia at " << target.getName() << " *\n";
+}
