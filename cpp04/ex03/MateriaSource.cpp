@@ -3,7 +3,9 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 
-MateriaSource::MateriaSource(){}
+MateriaSource::MateriaSource(){
+    for(int i = 0; i < 4; i++) slot[i] = NULL;
+}
 
 MateriaSource::MateriaSource(const MateriaSource &other){
     *this = other;
@@ -15,7 +17,14 @@ MateriaSource& MateriaSource::operator=(const MateriaSource &other){
     return *this;
 }
 
-MateriaSource::~MateriaSource(){}
+MateriaSource::~MateriaSource(){
+    for(int i = 0; i < 4; i++){
+        if(slot[i]){
+            delete slot[i];
+            slot[i] = NULL;
+        }
+    }
+}
 
 void MateriaSource::learnMateria(AMateria* mat){
     int i = 0;
