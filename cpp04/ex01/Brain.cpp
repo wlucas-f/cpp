@@ -1,7 +1,7 @@
 #include "Brain.hpp"
 
 Brain::Brain() : ideas(){
-    std::cout << "Brain construtor called\n";
+    std::cout << "Brain default construtor called\n";
 }
 
 Brain::Brain(const Brain &other) {
@@ -18,7 +18,7 @@ Brain &Brain::operator=(const Brain &other){
     return *this;
 }
 
-void Brain::setIdea(const std::string &idea, int index){
+void Brain::setIdea(int index, const std::string &idea){
     this->ideas[index] = idea;
 }
 

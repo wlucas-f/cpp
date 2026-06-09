@@ -1,6 +1,10 @@
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
 
+WrongCat::WrongCat():WrongAnimal("WrongCat"){
+    std::cout << "WrongCat default construtor called\n";
+}
+
 WrongCat::WrongCat(const std::string &type) : WrongAnimal(type){
     std::cout << "WrongCat construtor called\n";
 }
@@ -16,6 +20,10 @@ WrongCat &WrongCat::operator=(const WrongCat &other){
         return *this;
     this->setType(other.getType());
     return *this;
+}
+
+void WrongCat::makeSound() const{
+   std::cout << "Meow... Meow... Meow..." << std::endl;
 }
 
 WrongCat::~WrongCat(){

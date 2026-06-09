@@ -1,5 +1,9 @@
 #include "Cat.hpp"
 
+Cat::Cat():Animal("Cat"){
+    std::cout << "Cat default construtor called\n";
+}
+
 Cat::Cat(const std::string &type) : Animal(type){
     std::cout << "Cat construtor called\n";
 }
@@ -15,6 +19,10 @@ Cat &Cat::operator=(const Cat &other){
         return *this;
     this->setType(other.getType());
     return *this;
+}
+
+void Cat::makeSound() const{
+   std::cout << "Meow... Meow... Meow..." << std::endl;
 }
 
 Cat::~Cat(){

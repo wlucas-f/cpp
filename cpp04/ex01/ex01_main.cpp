@@ -54,18 +54,14 @@ int main(void)
     separator("3. Brain ideas read/write");
     {
         Dog d;
-        // Fill some ideas via the dog's brain accessor (if provided)
-        // If the subject only exposes Brain* getBrain(), use it;
-        // otherwise access through Dog directly.
-        // We test via a standalone Brain to verify the class works.
-        Brain b;
-        b.setIdea(0, "chase the mailman");
-        b.setIdea(1, "eat everything");
-        b.setIdea(99, "sleep all day");
 
-        std::cout << "idea[0]  : " << b.getIdea(0)  << std::endl;
-        std::cout << "idea[1]  : " << b.getIdea(1)  << std::endl;
-        std::cout << "idea[99] : " << b.getIdea(99) << std::endl;
+        d.getBrain()->setIdea(0, "chase the mailman");
+        d.getBrain()->setIdea(1, "eat everything");
+        d.getBrain()->setIdea(99, "sleep all day");
+
+        std::cout << "idea[0]  : " << d.getBrain()->getIdea(0)  << std::endl;
+        std::cout << "idea[1]  : " << d.getBrain()->getIdea(1)  << std::endl;
+        std::cout << "idea[99] : " << d.getBrain()->getIdea(99) << std::endl;
     }
 
     // ── 4. Deep copy – Dog ───────────────────────────────────────────────────

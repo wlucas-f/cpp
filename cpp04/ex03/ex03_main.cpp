@@ -48,10 +48,8 @@ int main(void)
     {
         Ice  ice;
         Cure cure;
-        std::cout << "Ice  type: " << ice.getType()
-                  << " -> " << (ice.getType()  == "ice"  ? "PASS" : "FAIL") << std::endl;
-        std::cout << "Cure type: " << cure.getType()
-                  << " -> " << (cure.getType() == "cure" ? "PASS" : "FAIL") << std::endl;
+        std::cout << "Ice  type: " << ice.getType() << std::endl;
+        std::cout << "Cure type: " << cure.getType() << std::endl;
     }
 
     // ── 3. clone() returns correct type ──────────────────────────────────────
@@ -63,10 +61,8 @@ int main(void)
         AMateria *iceClone  = ice->clone();
         AMateria *cureClone = cure->clone();
 
-        std::cout << "Ice  clone type: " << iceClone->getType()
-                  << " -> " << (iceClone->getType()  == "ice"  ? "PASS" : "FAIL") << std::endl;
-        std::cout << "Cure clone type: " << cureClone->getType()
-                  << " -> " << (cureClone->getType() == "cure" ? "PASS" : "FAIL") << std::endl;
+        std::cout << "Ice  clone type: " << iceClone->getType() << std::endl;
+        std::cout << "Cure clone type: " << cureClone->getType() << std::endl;
 
         // Clone must be a different object
         std::cout << "Ice  clone != original ptr -> "
@@ -123,7 +119,7 @@ int main(void)
         c.unequip(-1);        // invalid – nothing
         c.unequip(99);        // out of range – nothing
 
-        std::cout << "  No crash on invalid indices -> PASS\n";
+        std::cout << "  No crash on invalid indices\n";
         delete target;
     }
 
@@ -134,15 +130,13 @@ int main(void)
         AMateria *ice = new Ice();
         c.equip(ice);
 
-        // Save pointer, unequip, then still use the pointer (valgrind will
-        // catch it if it was already freed)
         c.unequip(0);
 
         std::cout << "  Materia type after unequip: "
-                  << ice->getType() << std::endl; // must not be UB
-        std::cout << "  unequip() did not delete -> PASS\n";
+                  << ice->getType() << std::endl;
+        std::cout << "  unequip() did not delete\n";
 
-        delete ice; // clean up ourselves
+        delete ice;
     }
 
     // ── 7. MateriaSource: unknown type returns 0 ─────────────────────────────
@@ -151,7 +145,7 @@ int main(void)
         MateriaSource src;
         src.learnMateria(new Ice());
 
-        AMateria *m = src.createMateria("fire"); // unknown
+        AMateria *m = src.createMateria("fire");
         std::cout << "  createMateria(\"fire\") == 0 -> "
                   << (m == 0 ? "PASS" : "FAIL") << std::endl;
         // no delete needed – it's null
@@ -224,7 +218,7 @@ int main(void)
         ICharacter *target = new Character("t");
         c.use(0, *target);
         delete target;
-        std::cout << "  Self-assignment safe -> PASS\n";
+        std::cout << "  Self-assignment safe\n";
     }
 
     // ── 12. Full workflow: src -> equip -> use -> delete ─────────────────────
@@ -255,6 +249,5 @@ int main(void)
         delete src;
     }
 
-    separator("All ex03 tests done");
     return 0;
 }

@@ -1,5 +1,9 @@
 #include "Animal.hpp"
 
+Animal::Animal():type("Animal"){
+    std::cout << "Animal default construtor called\n";
+}
+
 Animal::Animal(const std::string &type) : type(type){
     std::cout << "Animal construtor called\n";
 }

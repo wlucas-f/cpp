@@ -1,5 +1,9 @@
 #include "WrongAnimal.hpp"
 
+WrongAnimal::WrongAnimal():type("WrongAnimal"){
+    std::cout << "WrongAnimal default construtor called\n";
+}
+
 WrongAnimal::WrongAnimal(const std::string &type) : type(type){
     std::cout << "WrongAnimal construtor called\n";
 }
@@ -25,7 +29,7 @@ std::string WrongAnimal::getType() const{
     return this->type;
 }
 
-void WrongAnimal::makeSound(){
+void WrongAnimal::makeSound() const{
 	std::cout << "A non-defined Animal makes a generic, but weird sound!!" << std::endl;
 }
 
