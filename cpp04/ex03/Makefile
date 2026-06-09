@@ -1,11 +1,11 @@
-NAME = theInkSpots
+NAME = interface
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRCS_DIR = .
 OBJS_DIR = objects
 
-SRCS =	Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp Brain.cpp
+SRCS =	AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)

@@ -11,7 +11,8 @@ class Dog : public Animal{
         Dog(const std::string &type);
         Dog(const Dog &other);
         Dog &operator=(const Dog &other);
-        void makeSound() override;
+        Brain *getBrain();
+        void makeSound() const;
         ~Dog();
 
     private:

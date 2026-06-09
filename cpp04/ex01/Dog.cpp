@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal(){
+Dog::Dog() : Animal("Dog"){
     std::cout << "Dog construtor called\n";
     this->brain = new Brain();
 }
@@ -12,16 +12,15 @@ Dog::Dog(const std::string &type) : Animal(type){
 
 Dog::Dog(const Dog &other) : Animal(other){
     std::cout << "Dog copy construtor called\n";
-    delete this->brain;
-    this->brain = new Brain(*other.brain);
+  	this->brain = new Brain(*other.brain);
 }
 
 Dog &Dog::operator=(const Dog &other){
     std::cout << "Dog assignment operator called\n";
-    if (this == &other)
-        return *this;
-    delete this->brain;
-    this->brain = new Brain (*other.brain);
+    if (this != &other){
+    	delete this->brain;
+    	this->brain = new Brain(*other.brain);
+    }
     return *this;
 }
 
@@ -35,5 +34,5 @@ Brain* Dog::getBrain(){
 
 Dog::~Dog(){
     std::cout << "Dog destructor called\n";
-    delete brain;
+    delete this->brain;
 }
