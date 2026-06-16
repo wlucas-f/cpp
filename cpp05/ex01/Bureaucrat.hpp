@@ -6,6 +6,8 @@
 #include <ostream>
 #include <string>
 
+class Form{};
+
 class Bureaucrat{
 	private:
 		std::string const _name;
@@ -30,6 +32,7 @@ class Bureaucrat{
 		};
 		static int highestGrade;
 		static int lowestGrade;
+		void signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);

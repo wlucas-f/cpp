@@ -1,11 +1,11 @@
-NAME = bureaucrat
+NAME = form
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS_DIR = .
 OBJS_DIR = objects
 
-SRCS = Bureaucrat.cpp main.cpp
+SRCS = Bureaucrat.cpp main.cpp Form.cpp
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)
