@@ -6,7 +6,7 @@
 #include <ostream>
 #include <string>
 
-class Form{};
+class Form;
 
 class Bureaucrat{
 	private:

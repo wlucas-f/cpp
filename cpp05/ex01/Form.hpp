@@ -4,7 +4,7 @@
 #include <iostream>
 #include <ostream>
 
-class Bureaucrat{};
+class Bureaucrat;
 
 class Form{
     private:

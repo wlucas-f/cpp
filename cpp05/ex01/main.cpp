@@ -31,3 +31,4 @@ int main(){
 		std::cout << f;
 	}
 	std::cout << std::endl << std::endl;
+}

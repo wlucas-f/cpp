@@ -4,6 +4,7 @@
 Form::Form():_name("Default"), _isSigned(false), _gradeToSign(75), _gradeToExec(75){}
 
 Form::Form(std::string name, bool isSigned, const int gradeToSign, const int gradeToExec):_name(name), _isSigned(false), _gradeToSign(75), _gradeToExec(75){
+    (void)isSigned;
     if(gradeToSign < Bureaucrat::highestGrade || gradeToExec < Bureaucrat::highestGrade)
         throw Form::GradeTooHighException();
     if(gradeToSign > Bureaucrat::lowestGrade || gradeToExec > Bureaucrat::lowestGrade)
@@ -51,6 +52,7 @@ void Form::beSigned(Bureaucrat &bureaucrat){
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &f){
-   out << "Form: " << f.getName() << "\nIs signed? " << f.getIsSigned() << "\nGrade to sign: " << f.getGradeToSign()
+   out << "Form: " << f.getName() << "\nIs signed? " << (f.getIsSigned() ? "True" : "False") << "\nGrade to sign: " << f.getGradeToSign()
    << "\nGrade to execute: " << f.getGradeToExec();
+   return out;
 }
