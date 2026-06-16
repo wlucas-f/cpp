@@ -27,7 +27,7 @@ int main(){
 
 	std::cout << "---Insertion operator Overload---\n\n";
 	{
-		Form f("FAAAAA!", false, 75, 75);
+		Form f("FAAAAA!", false, 76, 75);
 		std::cout << f;
 	}
 	std::cout << std::endl << std::endl;

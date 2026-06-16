@@ -1,27 +1,27 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include <ostream>
 #include <string>
 #include "Bureaucrat.hpp"
 
-class Form{
+class AForm{
     private:
         std::string const _name;
         bool _isSigned;
         const int _gradeToSign;
         const int _gradeToExec;
     public:
-        Form();
-        Form(std::string name, bool isSigned, const int gradeToSign, const int gradeToExec);
-        Form(const Form &other);
-        Form& operator=(const Form &other);
+        AForm();
+        AForm(std::string name, bool isSigned, const int gradeToSign, const int gradeToExec);
+        AForm(const AForm &other);
+        AForm& operator=(const AForm &other);
         const std::string getName() const;
         bool getIsSigned() const;
         int getGradeToSign() const;
         int getGradeToExec() const;
-        ~Form();
+        ~AForm();
         class GradeTooHighException : public std::exception{
 			public:
 				const char *what() const throw();
@@ -35,9 +35,13 @@ class Form{
                 const char *what() const throw();
                 ~GradeTooLowException() throw();
         };
+        class NotSignedFormException : public std::exception{
+			public:
+				const char *what() const throw();
+		};
         void beSigned(Bureaucrat &bureucrat);
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &f);
+std::ostream &operator<<(std::ostream &out, const AForm &f);
 
 #endif
