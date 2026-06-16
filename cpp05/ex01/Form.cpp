@@ -1,5 +1,6 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
+#include <string>
 
 Form::Form():_name("Default"), _isSigned(false), _gradeToSign(75), _gradeToExec(75){}
 
@@ -41,19 +42,21 @@ const char *Form::GradeTooHighException::what() const throw(){
 	return "Not even the president has enought grade for that, who would have tought?";
 }
 
-const char *Form::GradeTooLowException::what() const throw(){
-	return "No one will sign your tissue, c'mon!";
-}
+Form::GradeTooLowException::GradeTooLowException():_message("No one will sign your tissue, c'mon!"){}
 
-const char *Form::TooLowToSignException::what() const throw(){
-	return "of the low rank, mind your own business!";
+Form::GradeTooLowException::GradeTooLowException(std::string message):_message(message){}
+
+const char *Form::GradeTooLowException::what() const throw(){
+	return _message.c_str();
 }
 
 void Form::beSigned(Bureaucrat &bureaucrat){
     if(bureaucrat.getGrade() > _gradeToSign)
-        throw TooLowToSignException();
+        throw GradeTooLowException("of the low rank, mind your own business!");
     _isSigned = true;
 }
+
+Form::GradeTooLowException::~GradeTooLowException() throw(){}
 
 std::ostream &operator<<(std::ostream &out, const Form &f){
    out << "Form: " << f.getName() << "\nIs signed? " << (f.getIsSigned() ? "True" : "False") << "\nGrade to sign: " << f.getGradeToSign()
