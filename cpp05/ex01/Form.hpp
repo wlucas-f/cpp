@@ -30,6 +30,10 @@ class Form{
             public:
                 const char *what() const throw();
         };
+        class TooLowToSignException : public std::exception{
+            public:
+                const char *what() const throw();
+        };
         void beSigned(Bureaucrat &bureucrat);
 };
 

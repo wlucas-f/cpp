@@ -45,9 +45,13 @@ const char *Form::GradeTooLowException::what() const throw(){
 	return "No one will sign your tissue, c'mon!";
 }
 
+const char *Form::TooLowToSignException::what() const throw(){
+	return "of the low rank, mind your own business!";
+}
+
 void Form::beSigned(Bureaucrat &bureaucrat){
     if(bureaucrat.getGrade() > _gradeToSign)
-        throw "grade too low, mind your own business!";
+        throw TooLowToSignException();
     _isSigned = true;
 }
 
