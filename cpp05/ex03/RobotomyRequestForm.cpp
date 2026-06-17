@@ -10,7 +10,7 @@ RobotomyRequestForm::RobotomyRequestForm():AForm("robotomy request", false, Robo
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm("robotomy request", false, RobotomyRequestForm::sign, RobotomyRequestForm::exec), _target(target){}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other):AForm("robotomy request", false, RobotomyRequestForm::sign, RobotomyRequestForm::exec), _target(other._target){}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other):AForm(other), _target(other._target){}
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &other){
 	if(this != &other)

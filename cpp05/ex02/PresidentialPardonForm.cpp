@@ -10,7 +10,7 @@ PresidentialPardonForm::PresidentialPardonForm():AForm("Presidential Pardon Form
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target):AForm("Presidential Pardon Form", false, PresidentialPardonForm::sign, PresidentialPardonForm::exec), _target(target){}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other):AForm("Presidential Pardon Form", false, PresidentialPardonForm::sign, PresidentialPardonForm::exec), _target(other._target){}
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other):AForm(other), _target(other._target){}
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &other){
 	if(this != &other)

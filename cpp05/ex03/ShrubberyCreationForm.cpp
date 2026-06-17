@@ -10,7 +10,7 @@ ShrubberyCreationForm::ShrubberyCreationForm():AForm("shrubbery creation", false
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):AForm("shrubbery creation", false, ShrubberyCreationForm::sign, ShrubberyCreationForm::exec), _target(target){}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other):AForm("shrubbery creation", false, ShrubberyCreationForm::sign, ShrubberyCreationForm::exec), _target(other._target){}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other):AForm(other), _target(other._target){}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other){
 	if(this != &other)
