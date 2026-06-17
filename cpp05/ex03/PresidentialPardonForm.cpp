@@ -6,11 +6,11 @@
 int PresidentialPardonForm::sign = 25;
 int PresidentialPardonForm::exec = 5;
 
-PresidentialPardonForm::PresidentialPardonForm():AForm("Presidential Pardon Form", false, PresidentialPardonForm::sign, PresidentialPardonForm::exec), _target("Default"){}
+PresidentialPardonForm::PresidentialPardonForm():AForm("presidential pardon", false, PresidentialPardonForm::sign, PresidentialPardonForm::exec), _target("Default"){}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target):AForm("Presidential Pardon Form", false, PresidentialPardonForm::sign, PresidentialPardonForm::exec), _target(target){}
+PresidentialPardonForm::PresidentialPardonForm(std::string target):AForm("presidential pardon", false, PresidentialPardonForm::sign, PresidentialPardonForm::exec), _target(target){}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other):AForm("Presidential Pardon Form", false, PresidentialPardonForm::sign, PresidentialPardonForm::exec), _target(other._target){}
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other):AForm("presidential pardon", false, PresidentialPardonForm::sign, PresidentialPardonForm::exec), _target(other._target){}
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &other){
 	if(this != &other)

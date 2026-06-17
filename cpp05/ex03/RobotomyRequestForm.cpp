@@ -6,11 +6,11 @@
 int RobotomyRequestForm::sign = 72;
 int RobotomyRequestForm::exec = 45;
 
-RobotomyRequestForm::RobotomyRequestForm():AForm("Robotomy Request Form", false, RobotomyRequestForm::sign, RobotomyRequestForm::exec), _target("Default"){}
+RobotomyRequestForm::RobotomyRequestForm():AForm("robotomy request", false, RobotomyRequestForm::sign, RobotomyRequestForm::exec), _target("Default"){}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm("Robotomy Request Form", false, RobotomyRequestForm::sign, RobotomyRequestForm::exec), _target(target){}
+RobotomyRequestForm::RobotomyRequestForm(std::string target):AForm("robotomy request", false, RobotomyRequestForm::sign, RobotomyRequestForm::exec), _target(target){}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other):AForm("Robotomy Request Form", false, RobotomyRequestForm::sign, RobotomyRequestForm::exec), _target(other._target){}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other):AForm("robotomy request", false, RobotomyRequestForm::sign, RobotomyRequestForm::exec), _target(other._target){}
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &other){
 	if(this != &other)
