@@ -34,7 +34,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 			    << "       ||| |||\n"
 			    << " ~ ~ ~ ~ ~ ~ ~ ~ ~\n";
 
-	std::cout << _target + "_shrubbery" << " was delivered in your current directory, go take a look.";
+	std::cout << _target + "_shrubbery" << " was delivered in your current directory, go take a look.\n" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}

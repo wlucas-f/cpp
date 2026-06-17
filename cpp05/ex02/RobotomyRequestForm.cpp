@@ -28,9 +28,9 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 	srand((unsigned) time(NULL));
 	int random = rand() % 50;
 	if(random <=24)
-	    std::cout << "- Congratulations! " << _target << " was robotomized successfully." << std::endl;
+	    std::cout << "- Congratulations! " << _target << " was robotomized successfully.\n" << std::endl;
 	else
-        std::cout << "- I'm sorry for your loss, " << _target << "'s robotomy failed" << std::endl;
+        std::cout << "- I'm sorry for your loss, " << _target << "'s robotomy failed\n" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(){}

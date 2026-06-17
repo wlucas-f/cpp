@@ -7,12 +7,12 @@
 
 int main(){
 
-    std::cout << "---File Creation Test 1---\n\n";
+    std::cout << "\n---File Creation Test 1---\n\n";
     {
         Bureaucrat tooLow("Tolo", 150);
         ShrubberyCreationForm f("Eden");
         try{
-            f.execute(tooLow);
+            tooLow.executeForm(f);
         }catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
@@ -23,10 +23,10 @@ int main(){
     {
         Bureaucrat writer("Escriba", 73);
         ShrubberyCreationForm f("Eden");
-        writer.signForm(f);
         Bureaucrat tooLow("Tolo", 150);
         try{
-            f.execute(tooLow);
+        	writer.signForm(f);
+        	tooLow.executeForm(f);
         }catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
@@ -37,9 +37,9 @@ int main(){
     {
         Bureaucrat writer("Escriba", 70);
         ShrubberyCreationForm f("Eden");
-        writer.signForm(f);
         try{
-            f.execute(writer);
+        	writer.signForm(f);
+       		writer.executeForm(f);
         }catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
@@ -51,7 +51,7 @@ int main(){
         Bureaucrat tooLow("Tolo", 150);
         RobotomyRequestForm f("Felipe");
         try{
-            f.execute(tooLow);
+           	tooLow.executeForm(f);
         }catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
@@ -65,7 +65,7 @@ int main(){
         Bureaucrat tooLow("Tolo", 150);
         try{
             writer.signForm(f);
-            f.execute(tooLow);
+           	tooLow.executeForm(f);
         }catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
@@ -78,7 +78,7 @@ int main(){
         RobotomyRequestForm f("Felipe");
         try{
             staff.signForm(f);
-            f.execute(staff);
+           	staff.executeForm(f);
         }catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
@@ -92,7 +92,7 @@ int main(){
         Bureaucrat tooLow("Tolo", 150);
         try{
             writer.signForm(f);
-            f.execute(tooLow);
+           	tooLow.executeForm(f);
         }catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
@@ -101,12 +101,12 @@ int main(){
 
     std::cout << "---Presidential Pardon Test 2---\n\n";
     {
-        Bureaucrat Marvin("The Paranoid", 25);
+        Bureaucrat marvin("The Paranoid", 25);
         PresidentialPardonForm f("Wallace");
         Bureaucrat tooLow("Tolo", 150);
         try{
-            Marvin.signForm(f);
-            f.execute(tooLow);
+            marvin.signForm(f);
+           	tooLow.executeForm(f);
         }catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
@@ -115,59 +115,14 @@ int main(){
 
     std::cout << "---Presidential Test 3---\n\n";
     {
-        Bureaucrat Marvin("The Paranoid", 25);
-        Bureaucrat President("Zaphod Beeblebrox", 1);
+        Bureaucrat marvin("The Paranoid", 25);
+        Bureaucrat president("Zaphod Beeblebrox", 1);
         PresidentialPardonForm f("Wallace");
         try{
-            Marvin.signForm(f);
-            f.execute(President);
+            marvin.signForm(f);
+           	president.executeForm(f);
         }catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
     }
-    std::cout << std::endl << std::endl;
-    /*
-        std::cout << "---Out of range constructor 1---\n\n";
-        {
-        try{
-        AForm indepedenceLetter("Independence Letter", false, 0, 0);
-        }catch (std::exception &e){
-        std::cout << e.what() << std::endl;
-        }
-        }
-        std::cout << std::endl << std::endl;
-
-        std::cout << "---Out of range constructor 2---\n\n";
-        {
-        try{
-        AForm tissue("Tissue", false, 151, 151);
-        }catch (std::exception &e){
-        std::cout << e.what() << std::endl;
-        }
-        }
-        std::cout << std::endl << std::endl;
-
-        std::cout << "---Insertion operator Overload---\n\n";
-        {
-        AForm f("FAAAAA!", false, 76, 75);
-        std::cout << f;
-        }
-        std::cout << std::endl << std::endl;
-
-        std::cout << "---Lower rank bureaucrat tries to sign---\n\n";
-        {
-        Bureaucrat tooLow("Tolo", Bureaucrat::lowestGrade);
-        std::cout << tooLow;
-
-        AForm googleAForms("Google AForms", false, 140, 140);
-        std::cout << googleAForms << std::endl << std::endl;
-
-        try{
-        tooLow.signForm(googleAForms);
-        }catch(std::exception &e){
-        std::cout << e.what() << std::endl;
-        }
-        }
-        std::cout << std::endl << std::endl;
-        */
 }

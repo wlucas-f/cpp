@@ -24,7 +24,7 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
 		throw AForm::NotSignedFormException();
 	if(executor.getGrade() > PresidentialPardonForm::exec)
 		throw AForm::GradeTooLowException("Wait till you grow bigger in the corporate ladder, you maggot!");
-	std::cout << "By decree of President Zaphod Beeblebrox, " << _target << " is pardoned — their name erased from the records; go in peace under the protection of the Republic's Seal." << std::endl;
+	std::cout << "By decree of President Zaphod Beeblebrox, " << _target << " is pardoned — their name erased from the records; go in peace under the protection of the Republic's Seal.\n" << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(){}
