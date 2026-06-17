@@ -1,5 +1,5 @@
-#ifndef ShrubberyCreationForm_HPP
-#define ShrubberyCreationForm_HPP
+#ifndef SHRUBBERYCRATIONFORM_HPP
+#define SHRUBBERYCRATIONFORM_HPP
 
 #include <iostream>
 #include <ostream>

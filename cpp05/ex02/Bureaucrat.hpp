@@ -33,6 +33,7 @@ class Bureaucrat{
 		static int highestGrade;
 		static int lowestGrade;
 		void signForm(AForm &AForm);
+		void executeForm(AForm const & form) const;
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);

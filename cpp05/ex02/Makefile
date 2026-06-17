@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS_DIR = .
 OBJS_DIR = objects
 
-SRCS = Bureaucrat.cpp main.cpp ShrubberyCreationForm.cpp AForm.cpp
+SRCS = Bureaucrat.cpp main.cpp ShrubberyCreationForm.cpp AForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)
