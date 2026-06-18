@@ -14,9 +14,30 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter &other){
 
 ScalarConverter::~ScalarConverter(){}
 
-void ScalarConverter::convert(char *string){
-    std::cout << "char: " << static_cast<char>(*string) << "\n";
-    std::cout << "int: " << static_cast<int>(*string) << "\n";
-    std::cout << "float: " << static_cast<float>(*string) << "\n";
-    std::cout << "double: " << static_cast<double>(*string) << "\n";
+types whichType(std::string str){
+	size_t dot = str.find(".");
+	size_t f = str.find("f");
+
+	if(dot == std::string::npos && f == std::string::npos)
+	{
+		// isChar
+		// isInt
+		// isSpecial
+	}
+	if(dot != std::string::npos && f != std::string::npos)
+		//isFloat
+	if(dot != std::string::npos && f == std::string::npos)
+			//isDouble
+}
+
+void ScalarConverter::convert(const std::string &str){
+	types type = whichType(str);
+	switch (type) {
+		case CHAR: std::cout << "its char"; break;
+		case INT: std::cout << "its int"; break;
+		case FLOAT: std::cout << "its float"; break;
+		case DOUBLE: std::cout << "its double"; break;
+		case SPECIAL: std::cout << "its special"; break;
+		case INVALID: std::cout << "its INVALID"; break;
+	}
 }
