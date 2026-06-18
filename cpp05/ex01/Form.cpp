@@ -39,7 +39,7 @@ int Form::getGradeToExec() const{
 Form::~Form(){}
 
 const char *Form::GradeTooHighException::what() const throw(){
-	return "Not even the president has enought grade for that, who would have tought?";
+	return "Not even the president has enought grade for that, who would have thought?";
 }
 
 Form::GradeTooLowException::GradeTooLowException():_message("No one will sign your tissue, c'mon!"){}
