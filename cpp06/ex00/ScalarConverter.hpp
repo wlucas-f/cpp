@@ -22,6 +22,9 @@ class ScalarConverter{
         static void convert(const std::string &str);
 };
 
+void convertFromNumber(const std::string str);
+void convertFromChar(const std::string str);
+void convertToChar(const char &c);
 types whichType(std::string str);
 bool isChar(std::string str);
 bool isInt(std::string str);
