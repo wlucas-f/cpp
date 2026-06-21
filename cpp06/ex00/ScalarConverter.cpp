@@ -1,6 +1,10 @@
 #include "ScalarConverter.hpp"
 #include "iostream"
 #include <cctype>
+#include "iomanip"
+#include "iostream"
+#include <cmath>
+#include <cstdio>
 #include <cstdlib>
 #include <cstddef>
 #include <limits>
@@ -24,7 +28,7 @@ ScalarConverter::~ScalarConverter(){}
 bool isChar(std::string str){
     if(str.size() != 1)
         return (false);
-    if(str.find_first_of("0123456789") != std::string::npos)
+    if(str.find_first_of(DIGITS) != std::string::npos)
         return (false);
     return (true);
 }
@@ -33,13 +37,14 @@ bool isInt(std::string str){
     size_t signalPos = 0;
     if(str[0] == '-')
         signalPos = 1;
-    if(str.find_first_not_of("0123456789", signalPos) != std::string::npos)
+    if(str.find_first_not_of(DIGITS, signalPos) != std::string::npos)
         return(false);
     return true;
 }
 
 bool isSpecial(std::string str){
-   if(str == "nan" || str == "-inf" || str == "+inf")
+   if(str == "nan" || str == "-inf" || str == "+inf"
+       || str == "nanf" || str == "-inff" || str == "-inff")
        return true;
    return false;
 }
@@ -89,45 +94,43 @@ types whichType(std::string str){
     return INVALID;
 }
 
-void convertToChar(const char &c){
-	if(std::numeric_limits<char>::max() <= c)
-		std::cout << "char: overflow\n";
-	else
-		std::cout << "char: " << c << "\n";
-}
-
-void convertFromChar(const std::string str){
-	convertToChar(str[0]);
-	std::cout << "int: " << static_cast<int>(str[0]) << "\n";
-	std::cout << "float: " << static_cast<float>(str[0]) << "\n";
-	std::cout << "double: " << static_cast<double>(str[0]) << "\n";
-}
-
-void convertFromNumber(const std::string str){
-	long double number = strtold(str.c_str(), NULL);
-	convertToChar(number);
-	if(number < std::numeric_limits<int>::min() || number > std::numeric_limits<int>::max())
-		std::cout << "int: overflow\n";
-	else
-		std::cout << "int: " << static_cast<int>(number) << "\n";
-	if(std::numeric_limits<float>::min() >= number || std::numeric_limits<float>::max() <= number)
-		std::cout << "float: overflow\n";
-	else
-		std::cout << "float: " << strtof(str.c_str(), NULL) << "\n";
-	if(std::numeric_limits<double>::min() >= number || std::numeric_limits<double>::max() <= number)
-		std::cout << "int: overflow\n";
-	else
-		std::cout << "int: " << static_cast<double>(number) << "\n";
+void displayResults(long double value, std::string str)
+{
+    if(value < std::numeric_limits<char>::min() || value > std::numeric_limits<char>::max())
+        std::cout << "char: " << "impossible\n";
+    else
+    {
+        if(!std::isprint(static_cast<char>(value)))
+            std::cout << "char: " << "Non displayable\n";
+        else
+            std::cout << "char: '" << static_cast<char>(value) << "'\n";
+    }
+    if(value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()
+        || str == "nan" || str == "nanf")
+        std::cout << "int: " << "impossible\n";
+    else
+        std::cout << "int: " << static_cast<int>(value) << "\n";
+    std::streamsize	original_precision = std::cout.precision();
+    std::cout << std::fixed << std::setprecision(1);
+    if(value < std::numeric_limits<float>::min() || value > std::numeric_limits<float>::max())
+        std::cout << "float: " << "impossible\n";
+    else
+        std::cout << "float: " << static_cast<float>(std::strtof(str.c_str(), NULL)) << "f\n";
+    if(value < std::numeric_limits<double>::min() || value > std::numeric_limits<double>::max())
+        std::cout << "double: " << "impossible\n";
+    else
+        std::cout << "double: " << static_cast<double>(std::strtod(str.c_str(), NULL)) << "\n";
+    std::cout.unsetf(std::ios::fixed);
+	std::cout.precision(original_precision);
 }
 
 void ScalarConverter::convert(const std::string &str){
     types type = whichType(str);
-    switch (type) {
-        case CHAR: convertFromChar(str); break; //convertFromChar
-        case INT: case FLOAT: case DOUBLE:
-        	convertFromNumber(str); break;
-        case SPECIAL: std::cout << "its special\n"; break;
-        case INVALID: std::cout << "its INVALID\n"; break;
+    if(type == INVALID)
+    {
+        std::cout << "Invalid Input\n";
+        return ;
     }
+    long double value = std::strtold(str.c_str(), NULL);
+    displayResults(value, str);
 }
-    //    	std::cout << "itsnumber\n"; break;
