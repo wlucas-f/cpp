@@ -9,6 +9,7 @@
 #include <cstddef>
 #include <limits>
 #include <string>
+#include <math.h>
 
 #define DIGITS "0123456789"
 
@@ -44,7 +45,8 @@ bool isInt(std::string str){
 
 bool isSpecial(std::string str){
    if(str == "nan" || str == "-inf" || str == "+inf"
-       || str == "nanf" || str == "-inff" || str == "-inff")
+       || str == "nanf" || str == "-inff" || str == "+inff" ||
+       str == "inf" || str == "inff")
        return true;
    return false;
 }
@@ -112,14 +114,16 @@ void displayResults(long double value, std::string str)
         std::cout << "int: " << static_cast<int>(value) << "\n";
     std::streamsize	original_precision = std::cout.precision();
     std::cout << std::fixed << std::setprecision(1);
-    if(value < std::numeric_limits<float>::min() || value > std::numeric_limits<float>::max())
+    if((value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max())
+    	&& value == value && !isinf(value))
         std::cout << "float: " << "impossible\n";
     else
-        std::cout << "float: " << static_cast<float>(std::strtof(str.c_str(), NULL)) << "f\n";
-    if(value < std::numeric_limits<double>::min() || value > std::numeric_limits<double>::max())
+        std::cout << "float: " << static_cast<float>(value) << "f\n";
+    if((value < -std::numeric_limits<double>::max() || value > std::numeric_limits<double>::max())
+    	&& value == value && !isinf(value))
         std::cout << "double: " << "impossible\n";
     else
-        std::cout << "double: " << static_cast<double>(std::strtod(str.c_str(), NULL)) << "\n";
+        std::cout << "double: " << static_cast<double>(value) << "\n";
     std::cout.unsetf(std::ios::fixed);
 	std::cout.precision(original_precision);
 }
@@ -132,5 +136,7 @@ void ScalarConverter::convert(const std::string &str){
         return ;
     }
     long double value = std::strtold(str.c_str(), NULL);
+    if(type == CHAR)
+    	value = str.at(0);
     displayResults(value, str);
 }
