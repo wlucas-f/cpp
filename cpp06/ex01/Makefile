@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS_DIR = .
 OBJS_DIR = objects
 
-SRCS = Data.cpp Serializer.cpp main.cpp
+SRCS = Serializer.cpp main.cpp
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)

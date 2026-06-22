@@ -2,7 +2,12 @@
 #define SERIALIZER_CPP
 
 #include <stdint.h>
-#include "Data.hpp"
+#include <string>
+
+struct Data{
+	std::string model;
+	int year;
+};
 
 class Serializer{
     private:
