@@ -24,13 +24,20 @@ Base * generate(void){
 		ret = new C;
 	return ret;
 }
+
 void identify(Base* p){
-	if(dynamic_cast<A*>(p))
+	if(p == NULL){
+		std::cout << "Pointer is NULL" << std::endl;
+		return;
+	}
+	if(dynamic_cast<A*>(p) != NULL)
 		std::cout << "It's A!\n";
-	if(dynamic_cast<B*>(p))
+	else if(dynamic_cast<B*>(p) != NULL)
 		std::cout << "It's B!\n";
-	if(dynamic_cast<C*>(p))
+	else if(dynamic_cast<C*>(p) != NULL)
 		std::cout << "It's C!\n";
+	else
+		std::cout << "Unknown type\n";
 }
 
 void identify(Base& p){
@@ -64,4 +71,6 @@ int main(){
 	identify(a);
 	identify(b);
 	identify(c);
+
+	delete Bs;
 }
