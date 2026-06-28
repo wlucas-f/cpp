@@ -1,21 +1,14 @@
 #include  "Array.hpp"
-#include  "Array.tpp"
 #include <exception>
 #include <iostream>
 
 int main(){
-	// std::cout << "------Default Constructor------\n";
-	// {
-	// 	Array<int> arrayInt;
-	// 	std::cout << arrayInt.;
-	// }
-	std::cout << "------Size test------\n";
+	std::cout << "------Default Constructor------\n";
 	{
-		Array<int> arrayInt(8);
-		std::cout << "Array size: " << arrayInt.size() << std::endl;
+		Array<int> arrayInt;
+		std::cout << arrayInt.size() << "\n";
 	}
-	std::cout << "\n\n";
-	std::cout << "------Operator test------\n";
+	std::cout << "------N elements, Operator and size test------\n";
 	{
 		int szarr = 3;
 		Array<int> sarrayInt(szarr);
@@ -26,15 +19,43 @@ int main(){
 			std::cout << sarrayInt[i] << "\n";
 	}
 	std::cout << "\n\n";
+	std::cout << "------Copy Constructor------\n";
+	{
+		Array<std::string> original(3);
+		std::cout << "Original before change: \n";
+		original[0] = "original";
+		original[1] = "original";
+		original[2] = "original";
+		for (int i = 0; i < 3; i++)
+			std::cout << original[i] << "\n";
+
+		Array<std::string> copy(original);
+		std::cout << "Copy before change: \n";
+		for (int i = 0; i < 3; i++)
+			std::cout << copy[i] << "\n";
+
+		std::cout << "Copy after change: \n";
+		copy[0] = "copy";
+		copy[1] = "copy";
+		copy[2] = "copy";
+		for (int i = 0; i < 3; i++)
+			std::cout << copy[i] << "\n";
+		std::cout << "Original after copy change: \n";
+		for (int i = 0; i < 3; i++)
+			std::cout << original[i] << "\n";
+	}
+	std::cout << "\n\n";
 	std::cout << "------Out Of Bounds test------\n";
 	{
-		Array<int> tarrayInt(10);
-		std::cout << "Array size: " << tarrayInt.size() << std::endl;
-	 try{
-			std::cout << tarrayInt[15];
-		}catch(std::exception &e){
+		Array<int>*	ptr = NULL;
+	 	try{
+			ptr = new Array<int>(10);
+			std::cout << "Array size: " << ptr->size() << std::endl;
+			std::cout << (*ptr)[15];
+		}catch(const std::exception &e){
 			std::cerr << "Exception: " << e.what() << "\n";
 		}
+		delete ptr;
 	}
 	std::cout << "\n\n";
 }

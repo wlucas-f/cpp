@@ -19,4 +19,7 @@ class Array{
 				const char * what() const throw();
 		};
 		T& operator[](int index);
+		T& operator[](int index) const;
 };
+
+#include "Array.tpp"

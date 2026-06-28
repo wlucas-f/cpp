@@ -1,6 +1,6 @@
 NAME = array
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRCS_DIR = .
 OBJS_DIR = objects
