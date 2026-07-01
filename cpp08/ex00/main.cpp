@@ -1,8 +1,14 @@
 #include "easyfind.hpp"
-#include "easyfind.tpp"
+#include <iostream>
+#include <vector>
 
 int main(){
-	int arr[10] = {0, 1, 3, 4, 5, 6, 7, 8, 9};
+	std::vector<int> v;
 
-	easyfind(arr, 1);
+	for(int i = 0; i < 10; i++)
+		v.push_back(i);
+
+	std::vector<int>::iterator it = easyfind(v, 7);
+	if(it != v.end())
+		std::cout << *it << "\n";
 }

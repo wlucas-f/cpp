@@ -1,9 +1,7 @@
 #pragma once
 
-#include <exception>
+#include <algorithm>
 
-template<typename T> void easyfind(T container, int toFind);
-class NotFoundException : public std::exception{
-	public:
-		const char *what() const throw();
-};
+template<typename T> typename T::iterator easyfind(T container, int toFind);
+
+#include "easyfind.tpp"

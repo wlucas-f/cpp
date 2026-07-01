@@ -1,16 +1,8 @@
 #include "easyfind.hpp"
-#include <algorithm>
-#include <istream>
-#include <iterator>
-#include <iostream>
 
-template<typename T> void easyfind(T container, int toFind){
-	int it = std::find(container.begin(), container.end(), toFind);
-	if(it == container.end())
-		throw NotFoundException();
-	std::cout << toFind << " was found in the position " << it << " of the container\n";
-}
+template<typename T> typename T::iterator easyfind(T container, int toFind){
 
-const char *NotFoundException::what() const throw(){
-	return "Element not found";
+	typename T::iterator it = container.begin();
+	it = std::find(container.begin(), container.end(), toFind);
+	return it;
 }
