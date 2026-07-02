@@ -28,12 +28,15 @@ void Span::addNumber(int num){
 }
 
 void Span::addMultipleNumbers(std::vector<int>::iterator b, std::vector<int>::iterator e){
-	for(;b != e; b++)
-	{
+	for(;b != e; b++){
 		if(storage.size() >= n)
 			throw FullStorageException();
 		storage.push_back(*b);
 	}
+}
+
+std::vector<int> Span::getStorage() const{
+	return this->storage;
 }
 
 int Span::shortestSpan(){

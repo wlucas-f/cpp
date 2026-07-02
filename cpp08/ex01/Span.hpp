@@ -16,6 +16,7 @@ class Span{
 		void addMultipleNumbers(std::vector<int>::iterator b, std::vector<int>::iterator e);
 		int shortestSpan();
 		int longestSpan();
+		std::vector<int> getStorage() const;
 		class FullStorageException: public std::exception{
 			public:
 				const char * what() const throw();
