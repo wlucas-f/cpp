@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 SRCS_DIR = .
 OBJS_DIR = objects
 
-SRCS =  main.cpp
+SRCS =  main.cpp BitcoinExchange.cpp
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)
