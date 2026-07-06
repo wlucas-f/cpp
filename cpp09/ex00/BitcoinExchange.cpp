@@ -21,18 +21,20 @@ BitcoinExchange::~BitcoinExchange(){}
 
 
 void BitcoinExchange::displayResult(std::string date, double value){
-    std::map<std::string, double>::iterator it = pairs.find(date);
 
-    if(it != pairs.end()){
-        std::cout << "AAAAAA\n";
-       std::cout << it->second * value;
-    }
-    else
-        std::cout << "Not found\n";
+	std::map<std::string, double>::iterator it = pairs.lower_bound(date);
+
+	if(it != pairs.end()){
+		if(it->first != date && it != pairs.begin())
+			it--;
+		std::cout << date << " => " << value << " = " << it->second * value << "\n";
+	}
+	else
+		std::cout << "Not found\n";
 }
 
 void BitcoinExchange::setPair(std::pair<std::string, double> value){
-    pairs.insert(value);
+	pairs.insert(value);
 }
 
 void BitcoinExchange::printMap(){

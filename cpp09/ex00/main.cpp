@@ -24,24 +24,51 @@ double parseValue(std::string &afterDelim){
     if (ret < 0)
         throw std::runtime_error("Error: not a positive number.");
     if (ret > std::numeric_limits<int>::max())
-        throw std::runtime_error("Error: too a large number.");
+        throw std::runtime_error("Error: too large a number.");
     return ret;
+}
+
+void parseDate(std::string &date){
+	date.erase(10);
+
+	double year = std::strtod(date.substr(0, 4).c_str(), NULL);
+	double month = std::strtod(date.substr(5, 6).c_str(), NULL);
+	double day = std::strtod(date.substr(8, 9).c_str(), NULL);
+	bool ans = true;
+
+	if(year < 2008 || year > 2022)
+		ans = false;
+	else if(month < 1 || month > 12)
+		ans = false;
+	else if(day < 1 || day > 31)
+		ans = false;
+	else if(month == 02)
+	{
+		bool leap = (static_cast<int>(year) % 400 == 0)
+				|| (static_cast<int>(year) % 4 == 0 && static_cast<int>(year) % 100 != 0);
+		if ((leap && day > 29) || (!leap && day > 28))
+			ans = false;
+	}
+	else if (month == 4 || month == 6 || month == 9 || month == 11)
+	{
+		if (day > 30)
+			ans = false;
+	}
+
+	if(ans == false)
+	{
+		std::string errmsg("Error: bad input => " + date);
+		throw std::runtime_error(errmsg);
+	}
 }
 
 void parseLine(BitcoinExchange &db, std::string &line, char delim){
     std::stringstream ss(line);
 
-    std::string date;
-    getline(ss, date, delim);
-    if (date.length() > 11)
-         date.erase(11);
-
-//    std::cout << "X" << date.at(date.length()) << "X\n";
-
-    std::cout << "->" << date << "<-\n";
-    //parseDate();
-
     try{
+	    std::string date;
+	    getline(ss, date, delim);
+	    parseDate(date);
         std::string afterDelim;
         getline(ss, afterDelim);
         double value = parseValue(afterDelim);
@@ -81,6 +108,4 @@ int main(int argc, char **argv){
 
     std::ifstream inputFile(argv[1]);
     parseFile(db, inputFile);
-    //inputDb.printMap();
-
 }

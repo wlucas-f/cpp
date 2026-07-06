@@ -1,6 +1,6 @@
 NAME = easyfind
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS_DIR = .
 OBJS_DIR = objects
