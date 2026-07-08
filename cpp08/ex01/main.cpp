@@ -29,7 +29,7 @@ int main()
 		}
 		sp.addMultipleNumbers(vec.begin(), vec.end());
 		std::vector<int> storage = sp.getStorage();
-		std::vector<int>::iterator it = storage.begin();
+		// std::vector<int>::iterator it = storage.begin();
 		// for(; it != storage.end(); it++){
 		// 	std::cout << *it << "\n";
 		// }
