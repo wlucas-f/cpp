@@ -19,6 +19,9 @@ RPN& RPN::operator=(const RPN &other){
 
 void RPN::doOp(std::string token)
 {
+	if (stack.size() <= 1)
+		throw std::runtime_error("Error");
+
 	int v1 = stack.top();
 	stack.pop();
 	if(token == "/" && v1 == 0)
@@ -38,6 +41,8 @@ void RPN::doOp(std::string token)
 
 void RPN::displayResult()
 {
+	if(stack.size() != 1)
+		throw std::runtime_error("Error");
 	while(!stack.empty())
 	{
 		std::cout << stack.top() << "\n";
@@ -58,6 +63,8 @@ void RPN::solve(const std::string &str){
 
 	while(input >> token)
 	{
+		if(token.size() != 1)
+			throw std::runtime_error("Error");
 		if(validOperands.find(token) != std::string::npos)
 			doOp(token);
 		else
